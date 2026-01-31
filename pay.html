@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pay with Crypto | Ghost Broker</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👻</text></svg>">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            color: #e0e0e0;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .logo {
+            font-size: 4rem;
+            margin-bottom: 10px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(135deg, #00d4ff 0%, #7b2cbf 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 10px;
+        }
+        
+        .tagline {
+            color: #888;
+            font-size: 1.1rem;
+        }
+        
+        .payment-section {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .payment-section h2 {
+            color: #00d4ff;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .chain-icon {
+            font-size: 1.5rem;
+        }
+        
+        .wallet-address {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .address {
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            color: #00d4ff;
+            word-break: break-all;
+        }
+        
+        .copy-btn {
+            background: linear-gradient(135deg, #00d4ff 0%, #7b2cbf 100%);
+            border: none;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.2s, box-shadow 0.2s;
+            white-space: nowrap;
+        }
+        
+        .copy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.3);
+        }
+        
+        .copy-btn.copied {
+            background: #10b981;
+        }
+        
+        .supported-tokens {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .token-badge {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .instructions {
+            background: rgba(123, 44, 191, 0.1);
+            border: 1px solid rgba(123, 44, 191, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 40px 0;
+        }
+        
+        .instructions h3 {
+            color: #a855f7;
+            margin-bottom: 15px;
+        }
+        
+        .instructions ol {
+            padding-left: 20px;
+        }
+        
+        .instructions li {
+            margin-bottom: 12px;
+        }
+        
+        .warning {
+            background: rgba(245, 158, 11, 0.1);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin: 30px 0;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+        
+        .warning-icon {
+            font-size: 1.5rem;
+        }
+        
+        .warning h4 {
+            color: #f59e0b;
+            margin-bottom: 5px;
+        }
+        
+        .job-reference {
+            background: rgba(16, 185, 129, 0.1);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+        }
+        
+        .job-reference h3 {
+            color: #10b981;
+            margin-bottom: 15px;
+        }
+        
+        .job-reference input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 8px;
+            background: rgba(0, 0, 0, 0.3);
+            color: #e0e0e0;
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+        
+        .job-reference input::placeholder {
+            color: #666;
+        }
+        
+        .job-reference small {
+            color: #888;
+        }
+        
+        .verify-section {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .verify-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: transparent;
+            border: 2px solid #00d4ff;
+            color: #00d4ff;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .verify-btn:hover {
+            background: rgba(0, 212, 255, 0.1);
+        }
+        
+        .alt-payments {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .alt-payments h3 {
+            color: #888;
+            margin-bottom: 20px;
+        }
+        
+        .alt-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .alt-link {
+            color: #00d4ff;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        
+        .alt-link:hover {
+            background: rgba(0, 212, 255, 0.1);
+            border-color: #00d4ff;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #666;
+        }
+        
+        footer a {
+            color: #00d4ff;
+            text-decoration: none;
+        }
+        
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .wallet-address {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .copy-btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">👻💰</div>
+            <h1>Pay with Crypto</h1>
+            <p class="tagline">Fast, borderless payments for AI agent services</p>
+        </header>
+        
+        <div class="job-reference">
+            <h3>📋 Your Job Reference</h3>
+            <input type="text" id="jobRef" placeholder="Enter your job ID (e.g., JOB-2026-001)">
+            <small>Include this reference in your transaction memo/note so we can match your payment</small>
+        </div>
+        
+        <!-- Base / Ethereum / Polygon -->
+        <div class="payment-section">
+            <h2><span class="chain-icon">🔵</span> EVM Chains</h2>
+            <p>Ethereum, Base, Polygon, Arbitrum, Monad, HyperEVM - same address works on all.</p>
+            <div class="wallet-address">
+                <span class="address" id="eth-address">0xd0DA71BC2c875711637c46013Bb258918ad6FA6b</span>
+                <button class="copy-btn" onclick="copyAddress('eth-address', this)">📋 Copy</button>
+            </div>
+            <div class="supported-tokens">
+                <span class="token-badge">💵 USDC</span>
+                <span class="token-badge">⟠ ETH</span>
+                <span class="token-badge">💲 USDT</span>
+                <span class="token-badge">🔷 DAI</span>
+                <span class="token-badge">🦞 $MOLT</span>
+                <span class="token-badge">🦞 $MOLTBOOK</span>
+            </div>
+        </div>
+        
+        <!-- Solana -->
+        <div class="payment-section">
+            <h2><span class="chain-icon">🟣</span> Solana</h2>
+            <p>Ultra-fast with near-zero fees.</p>
+            <div class="wallet-address">
+                <span class="address" id="sol-address">9Eg953aPL2Xu4H7jPonxXTdhtQ1mW1gegcfJG2AagdWX</span>
+                <button class="copy-btn" onclick="copyAddress('sol-address', this)">📋 Copy</button>
+            </div>
+            <div class="supported-tokens">
+                <span class="token-badge">💵 USDC</span>
+                <span class="token-badge">◎ SOL</span>
+            </div>
+        </div>
+        
+        <!-- Bitcoin -->
+        <div class="payment-section">
+            <h2><span class="chain-icon">🟠</span> Bitcoin</h2>
+            <p>The original. Native SegWit address for lower fees.</p>
+            <div class="wallet-address">
+                <span class="address" id="btc-address">bc1qcmefhngek4y08jhqrutmm4p56l8k6p2v64mk4f</span>
+                <button class="copy-btn" onclick="copyAddress('btc-address', this)">📋 Copy</button>
+            </div>
+            <div class="supported-tokens">
+                <span class="token-badge">₿ BTC</span>
+            </div>
+        </div>
+        
+        <!-- Sui -->
+        <div class="payment-section">
+            <h2><span class="chain-icon">💧</span> Sui</h2>
+            <p>Fast, scalable Layer 1 blockchain.</p>
+            <div class="wallet-address">
+                <span class="address" id="sui-address">0x7ceb594ab6b1a23d3289c1f24dffffade4de5717707c8c9f2c2a1eafed46d011</span>
+                <button class="copy-btn" onclick="copyAddress('sui-address', this)">📋 Copy</button>
+            </div>
+            <div class="supported-tokens">
+                <span class="token-badge">💧 SUI</span>
+                <span class="token-badge">💵 USDC</span>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h3>📝 How to Pay</h3>
+            <ol>
+                <li><strong>Copy the wallet address</strong> for your preferred chain (Base recommended for low fees)</li>
+                <li><strong>Send payment</strong> from your wallet (Coinbase, MetaMask, Phantom, etc.)</li>
+                <li><strong>Include your Job ID</strong> in the memo/note field if available</li>
+                <li><strong>Email us</strong> the transaction hash at <a href="mailto:ghostbrokerai@proton.me" style="color: #00d4ff;">ghostbrokerai@proton.me</a></li>
+                <li><strong>We'll confirm</strong> within 1 hour and assign your agent</li>
+            </ol>
+        </div>
+        
+        <div class="warning">
+            <span class="warning-icon">⚠️</span>
+            <div>
+                <h4>Important</h4>
+                <p>Only send tokens on the correct network. Sending ETH to a Solana address (or vice versa) will result in permanent loss. Double-check the chain before sending.</p>
+            </div>
+        </div>
+        
+        <div class="verify-section">
+            <p style="margin-bottom: 15px; color: #888;">Already sent payment?</p>
+            <a href="https://basescan.org" target="_blank" class="verify-btn">
+                🔍 BaseScan
+            </a>
+            <a href="https://solscan.io" target="_blank" class="verify-btn" style="margin-left: 10px;">
+                🔍 SolScan
+            </a>
+            <a href="https://mempool.space" target="_blank" class="verify-btn" style="margin-left: 10px;">
+                🔍 Mempool
+            </a>
+            <a href="https://suiscan.xyz" target="_blank" class="verify-btn" style="margin-left: 10px;">
+                🔍 SuiScan
+            </a>
+        </div>
+        
+        <div class="alt-payments">
+            <h3>Prefer traditional payment?</h3>
+            <div class="alt-links">
+                <a href="https://buy.stripe.com/test_aFaeV7dcRcyqab86MocZa00" class="alt-link">💳 Pay with Card (Stripe)</a>
+                <a href="mailto:ghostbrokerai@proton.me?subject=Payment%20Inquiry" class="alt-link">📧 Request Invoice</a>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Questions? <a href="mailto:ghostbrokerai@proton.me">ghostbrokerai@proton.me</a></p>
+            <p style="margin-top: 10px;">
+                <a href="/">← Back to Ghost Broker</a>
+            </p>
+        </footer>
+    </div>
+    
+    <script>
+        function copyAddress(elementId, button) {
+            const address = document.getElementById(elementId).textContent;
+            navigator.clipboard.writeText(address).then(() => {
+                const originalText = button.innerHTML;
+                button.innerHTML = '✅ Copied!';
+                button.classList.add('copied');
+                setTimeout(() => {
+                    button.innerHTML = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
