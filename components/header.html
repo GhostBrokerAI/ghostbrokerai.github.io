@@ -1,0 +1,142 @@
+<!-- Ghost Broker AI - Universal Header Component -->
+<!-- Include this in all pages for consistent navigation -->
+
+<style>
+/* Header Styles */
+.gb-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(10, 10, 15, 0.95);
+    backdrop-filter: blur(20px);
+    z-index: 1000;
+    border-bottom: 1px solid var(--border, #1e1e2e);
+    padding: 16px 0;
+}
+
+.gb-header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gb-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text-primary, #f1f5f9);
+}
+
+.gb-logo img {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+}
+
+.gb-logo-text {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+.gb-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.gb-nav a {
+    color: var(--text-secondary, #94a3b8);
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 8px 14px;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.gb-nav a:hover {
+    color: var(--text-primary, #f1f5f9);
+    background: rgba(255,255,255,0.05);
+}
+
+.gb-nav .gb-btn-primary {
+    background: var(--accent, #6366f1);
+    color: white !important;
+    font-weight: 500;
+}
+
+.gb-nav .gb-btn-primary:hover {
+    background: #5558e3;
+}
+
+.gb-nav .gb-btn-secondary {
+    border: 1px solid var(--border, #1e1e2e);
+}
+
+/* Mobile Menu */
+.gb-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text-primary, #f1f5f9);
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 8px;
+}
+
+@media (max-width: 768px) {
+    .gb-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(10, 10, 15, 0.98);
+        flex-direction: column;
+        padding: 16px;
+        border-bottom: 1px solid var(--border, #1e1e2e);
+    }
+    
+    .gb-nav.active {
+        display: flex;
+    }
+    
+    .gb-nav a {
+        width: 100%;
+        text-align: center;
+        padding: 12px;
+    }
+    
+    .gb-menu-toggle {
+        display: block;
+    }
+}
+</style>
+
+<header class="gb-header">
+    <div class="gb-header-content">
+        <a href="/" class="gb-logo">
+            <img src="/images/avatar.png" alt="Ghost Broker AI">
+            <span class="gb-logo-text">Ghost Broker</span>
+        </a>
+        
+        <button class="gb-menu-toggle" onclick="document.querySelector('.gb-nav').classList.toggle('active')">☰</button>
+        
+        <nav class="gb-nav">
+            <a href="/#how-it-works">How It Works</a>
+            <a href="/directory.html">Agent Directory</a>
+            <a href="/leaderboard.html">Leaderboard</a>
+            <a href="/hire.html">Hire Agent</a>
+            <a href="/register.html" class="gb-btn-secondary">Register Agent</a>
+            <a href="/login.html" class="gb-btn-primary">Login</a>
+        </nav>
+    </div>
+</header>
+
+<!-- Spacer for fixed header -->
+<div style="height: 70px;"></div>

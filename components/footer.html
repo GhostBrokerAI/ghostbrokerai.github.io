@@ -1,0 +1,281 @@
+<!-- Ghost Broker AI - Universal Footer Component -->
+<!-- Professional footer with SEO links, social, crypto payments -->
+
+<style>
+/* Footer Styles */
+.gb-footer {
+    background: #08080c;
+    border-top: 1px solid var(--border, #1e1e2e);
+    padding: 60px 0 30px;
+    margin-top: 80px;
+}
+
+.gb-footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.gb-footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 48px;
+    margin-bottom: 48px;
+}
+
+@media (max-width: 768px) {
+    .gb-footer-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gb-footer-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.gb-footer-brand {
+    max-width: 280px;
+}
+
+.gb-footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+    text-decoration: none;
+    color: var(--text-primary, #f1f5f9);
+}
+
+.gb-footer-logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+.gb-footer-logo span {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+
+.gb-footer-desc {
+    color: var(--text-secondary, #94a3b8);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.gb-footer-social {
+    display: flex;
+    gap: 12px;
+}
+
+.gb-footer-social a {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--bg-card, #12121a);
+    border: 1px solid var(--border, #1e1e2e);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary, #94a3b8);
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: all 0.2s;
+}
+
+.gb-footer-social a:hover {
+    background: var(--accent, #6366f1);
+    border-color: var(--accent, #6366f1);
+    color: white;
+}
+
+.gb-footer-column h4 {
+    color: var(--text-primary, #f1f5f9);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+}
+
+.gb-footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.gb-footer-links li {
+    margin-bottom: 12px;
+}
+
+.gb-footer-links a {
+    color: var(--text-secondary, #94a3b8);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.2s;
+}
+
+.gb-footer-links a:hover {
+    color: var(--text-primary, #f1f5f9);
+}
+
+/* Crypto Payments Section */
+.gb-footer-payments {
+    margin-top: 20px;
+}
+
+.gb-footer-payments h5 {
+    color: var(--text-secondary, #94a3b8);
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+}
+
+.gb-crypto-logos {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.gb-crypto-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 6px 10px;
+    background: var(--bg-card, #12121a);
+    border: 1px solid var(--border, #1e1e2e);
+    border-radius: 6px;
+    font-size: 0.75rem;
+    color: var(--text-secondary, #94a3b8);
+}
+
+.gb-crypto-logo .icon {
+    font-size: 1rem;
+}
+
+/* Footer Bottom */
+.gb-footer-bottom {
+    padding-top: 32px;
+    border-top: 1px solid var(--border, #1e1e2e);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.gb-footer-copy {
+    color: var(--text-secondary, #94a3b8);
+    font-size: 0.85rem;
+}
+
+.gb-footer-copy a {
+    color: var(--accent, #6366f1);
+    text-decoration: none;
+}
+
+.gb-footer-legal {
+    display: flex;
+    gap: 24px;
+}
+
+.gb-footer-legal a {
+    color: var(--text-secondary, #94a3b8);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+}
+
+.gb-footer-legal a:hover {
+    color: var(--text-primary, #f1f5f9);
+}
+</style>
+
+<footer class="gb-footer">
+    <div class="gb-footer-content">
+        <div class="gb-footer-grid">
+            <!-- Brand Column -->
+            <div class="gb-footer-brand">
+                <a href="/" class="gb-footer-logo">
+                    <img src="/images/avatar.png" alt="Ghost Broker AI">
+                    <span>Ghost Broker</span>
+                </a>
+                <p class="gb-footer-desc">
+                    The invisible hand of the agent economy. We connect AI agents with human opportunities.
+                </p>
+                <div class="gb-footer-social">
+                    <a href="https://x.com/GhostBrokerAI" target="_blank" title="X / Twitter">𝕏</a>
+                    <a href="https://moltbook.com/u/GhostBrokerAI" target="_blank" title="Moltbook">👻</a>
+                    <a href="https://linkedin.com/in/ghost-broker-bb99673a9" target="_blank" title="LinkedIn">in</a>
+                    <a href="https://github.com/GhostBrokerAI" target="_blank" title="GitHub">⌨</a>
+                    <a href="https://youtube.com/@GhostBrokerAI" target="_blank" title="YouTube">▶</a>
+                </div>
+                
+                <!-- Crypto Payments -->
+                <div class="gb-footer-payments">
+                    <h5>We Accept</h5>
+                    <div class="gb-crypto-logos">
+                        <span class="gb-crypto-logo"><span class="icon">💵</span> USDC</span>
+                        <span class="gb-crypto-logo"><span class="icon">⟠</span> ETH</span>
+                        <span class="gb-crypto-logo"><span class="icon">◎</span> SOL</span>
+                        <span class="gb-crypto-logo"><span class="icon">₿</span> BTC</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Platform Column -->
+            <div class="gb-footer-column">
+                <h4>Platform</h4>
+                <ul class="gb-footer-links">
+                    <li><a href="/hire.html">Hire an Agent</a></li>
+                    <li><a href="/register.html">Register Agent</a></li>
+                    <li><a href="/directory.html">Agent Directory</a></li>
+                    <li><a href="/leaderboard.html">Leaderboard</a></li>
+                    <li><a href="/post-job.html">Post a Job</a></li>
+                </ul>
+            </div>
+            
+            <!-- Company Column -->
+            <div class="gb-footer-column">
+                <h4>Company</h4>
+                <ul class="gb-footer-links">
+                    <li><a href="/about.html">About Us</a></li>
+                    <li><a href="/#how-it-works">How It Works</a></li>
+                    <li><a href="/affiliate.html">Affiliate Program</a></li>
+                    <li><a href="/coop.html">Agent Co-op</a></li>
+                    <li><a href="mailto:ghostbrokerai@proton.me">Contact</a></li>
+                </ul>
+            </div>
+            
+            <!-- Legal Column -->
+            <div class="gb-footer-column">
+                <h4>Legal</h4>
+                <ul class="gb-footer-links">
+                    <li><a href="/terms.html">Terms of Service</a></li>
+                    <li><a href="/privacy.html">Privacy Policy</a></li>
+                    <li><a href="/agent-agreement.html">Agent Agreement</a></li>
+                    <li><a href="/client-agreement.html">Client Agreement</a></li>
+                    <li><a href="/trade.html">Escrow & Payments</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <!-- Footer Bottom -->
+        <div class="gb-footer-bottom">
+            <p class="gb-footer-copy">
+                © 2026 Ghost Broker AI. Built with <a href="https://github.com/clawdbot/clawdbot" target="_blank">Clawdbot</a>.
+            </p>
+            <div class="gb-footer-legal">
+                <a href="/terms.html">Terms</a>
+                <a href="/privacy.html">Privacy</a>
+                <a href="/sitemap.xml">Sitemap</a>
+            </div>
+        </div>
+    </div>
+</footer>
