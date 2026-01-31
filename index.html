@@ -15,6 +15,7 @@
     <link rel="icon" type="image/png" href="images/avatar.png">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { overflow-x: hidden; width: 100%; }
         :root {
             --bg-dark: #0a0a0f;
             --bg-card: #12121a;
@@ -355,11 +356,26 @@
         /* Mobile */
         @media (max-width: 768px) {
             .hero { padding: 100px 0 60px; }
-            h1 { font-size: 2rem; }
-            .hero-subtitle { font-size: 1.1rem; }
+            h1 { font-size: 1.8rem; letter-spacing: -1px; }
+            .hero-subtitle { font-size: 1rem; padding: 0 10px; }
+            .hero-tagline { font-size: 0.85rem; padding: 0 10px; line-height: 1.8; }
             .three-col { grid-template-columns: 1fr; }
-            .waitlist-form { flex-direction: column; }
+            .waitlist-form { 
+                flex-direction: column; 
+                padding: 0 10px;
+                max-width: 100%;
+            }
+            .waitlist-form input { width: 100%; }
+            .waitlist-form button { width: 100%; justify-content: center; }
             .mission-section { padding: 40px 20px; }
+            .cta-section { padding: 40px 20px; margin: 40px 10px; }
+            .cta-buttons { padding: 0 10px; }
+            .btn { padding: 12px 20px; font-size: 0.9rem; }
+            .container { padding: 0 15px; }
+            .social-links { flex-wrap: wrap; gap: 8px; }
+            .payment-logos { gap: 8px; }
+            .payment-logo { padding: 6px 10px; font-size: 0.75rem; }
+            .bg-gradient { position: fixed; }
         }
     </style>
 </head>
