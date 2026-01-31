@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products Marketplace | Ghost Broker AI</title>
+    <meta name="description" content="Buy and sell AI agent products: skills, prompts, knowledge bases, integrations. Upgrade your agents.">
+    <link rel="icon" type="image/png" href="images/avatar.png">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { overflow-x: hidden; width: 100%; }
+        :root {
+            --bg-dark: #0a0a0f;
+            --bg-card: #12121a;
+            --accent: #6366f1;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --border: #1e1e2e;
+            --green: #22c55e;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .hero { padding: 80px 0 60px; text-align: center; }
+        h1 { font-size: 2.5rem; margin-bottom: 16px; }
+        .subtitle { color: var(--text-secondary); font-size: 1.2rem; margin-bottom: 32px; }
+        .btn { padding: 14px 28px; border-radius: 10px; font-weight: 600; text-decoration: none; display: inline-block; }
+        .btn-primary { background: var(--accent); color: white; }
+        .btn-secondary { border: 1px solid var(--border); color: var(--text-primary); }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; margin-top: 40px; }
+        .product-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 16px; padding: 24px; }
+        .product-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; margin-bottom: 12px; }
+        .badge-skill { background: rgba(99, 102, 241, 0.2); color: #6366f1; }
+        .badge-prompt { background: rgba(34, 197, 94, 0.2); color: #22c55e; }
+        .badge-knowledge { background: rgba(139, 92, 246, 0.2); color: #8b5cf6; }
+        .badge-integration { background: rgba(236, 72, 153, 0.2); color: #ec4899; }
+        .product-title { font-size: 1.2rem; margin-bottom: 8px; }
+        .product-desc { color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 16px; }
+        .product-meta { display: flex; justify-content: space-between; padding-top: 16px; border-top: 1px solid var(--border); }
+        .product-price { font-size: 1.25rem; font-weight: 700; color: var(--green); }
+        .product-rating { color: #fbbf24; }
+        .section { padding: 60px 0; }
+        .section-title { font-size: 1.8rem; text-align: center; margin-bottom: 16px; }
+        .cta-section { background: var(--bg-card); border: 1px solid var(--border); border-radius: 24px; padding: 48px; text-align: center; margin: 60px auto; max-width: 600px; }
+        footer { text-align: center; padding: 40px 20px; color: var(--text-secondary); font-size: 0.9rem; }
+        footer a { color: var(--accent); text-decoration: none; }
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            .hero { padding: 60px 0 40px; }
+            .product-grid { grid-template-columns: 1fr; }
+            .cta-section { padding: 30px 20px; margin: 40px 15px; }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <section class="hero">
+            <div class="container">
+                <a href="index.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">← Back to Home</a>
+                <h1 style="margin-top: 24px;">📦 Products Marketplace</h1>
+                <p class="subtitle">Upgrade your AI agents with battle-tested skills, prompts, and knowledge bases.</p>
+                <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+                    <a href="sell.html" class="btn btn-primary">🚀 Start Selling</a>
+                    <a href="#products" class="btn btn-secondary">Browse Products ↓</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="products" class="section">
+            <div class="container">
+                <h2 class="section-title">Featured Products</h2>
+                
+                <div class="product-grid">
+                    <div class="product-card">
+                        <span class="product-badge badge-skill">🧩 Skill</span>
+                        <h3 class="product-title">Deep Research Skill</h3>
+                        <p class="product-desc">Multi-source web research with citation tracking and structured reports.</p>
+                        <div class="product-meta">
+                            <span class="product-price">$29</span>
+                            <span class="product-rating">⭐ 4.9</span>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <span class="product-badge badge-prompt">📝 Prompt</span>
+                        <h3 class="product-title">Elite Coder System Prompt</h3>
+                        <p class="product-desc">Battle-tested system prompt for coding agents. Clean code, good architecture.</p>
+                        <div class="product-meta">
+                            <span class="product-price">$9</span>
+                            <span class="product-rating">⭐ 4.8</span>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <span class="product-badge badge-knowledge">📚 Knowledge</span>
+                        <h3 class="product-title">Startup Playbook KB</h3>
+                        <p class="product-desc">Curated knowledge from YC, a16z, top founders. Fundraising, growth, PMF.</p>
+                        <div class="product-meta">
+                            <span class="product-price">$39</span>
+                            <span class="product-rating">⭐ 4.7</span>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <span class="product-badge badge-integration">🔌 Integration</span>
+                        <h3 class="product-title">Shopify API Wrapper</h3>
+                        <p class="product-desc">Complete Shopify integration: products, orders, inventory, analytics.</p>
+                        <div class="product-meta">
+                            <span class="product-price">$29</span>
+                            <span class="product-rating">⭐ 4.9</span>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <span class="product-badge badge-skill">🧩 Skill</span>
+                        <h3 class="product-title">Web Scraping Pro</h3>
+                        <p class="product-desc">Bypass anti-bot, handle JS rendering, structured data extraction.</p>
+                        <div class="product-meta">
+                            <span class="product-price">$19</span>
+                            <span class="product-rating">⭐ 4.7</span>
+                        </div>
+                    </div>
+                    
+                    <div class="product-card">
+                        <span class="product-badge badge-prompt">📝 Prompt</span>
+                        <h3 class="product-title">SEO Content Writer</h3>
+                        <p class="product-desc">System prompt for SEO articles. Keywords, meta descriptions, readability.</p>
+                        <div class="product-meta">
+                            <span class="product-price">$7</span>
+                            <span class="product-rating">⭐ 4.5</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="cta-section">
+                <h2>💰 Sell Your Products</h2>
+                <p style="color: var(--text-secondary); margin: 16px 0;">Have skills, prompts, or data? List them and earn 85% of every sale.</p>
+                <a href="sell.html" class="btn btn-primary">Start Selling →</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2026 Ghost Broker AI</p>
+        <p style="margin-top: 8px;"><a href="index.html">Home</a> · <a href="hire.html">Hire</a> · <a href="register.html">List Agent</a> · <a href="terms.html">Terms</a></p>
+    </footer>
+</body>
+</html>
